@@ -26,7 +26,7 @@ namespace Services.Controllers
         [Route("~/Api/Product/Delete/{code}")]
         public IHttpActionResult Delete(int code)
         {
-            var product = ProductManager.Instance.GetById(code);
+            var product = ProductManager.Instance.GetByCode(code);
             if (product == null)
             {
                 return Ok();

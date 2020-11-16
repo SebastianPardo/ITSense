@@ -4,11 +4,13 @@
 
 class Product{
     private code: JQuery = $('#Code');
+    private codeDel: JQuery = $('#CodeDel');
     private description: JQuery = $('#Description');
     private status: JQuery = $('#Status');
     private isDefective: JQuery = $('#IsDefective');
     private items: JQuery = $('#items');
     private btnAdd: JQuery = $('#btnAdd');
+    private btnDelete: JQuery = $('#btnDelete');
     constructor() {
         $.ajax({
             url: 'https://localhost:44305/Api/Product',
@@ -32,6 +34,22 @@ class Product{
                     Code: this.code.val(), Name: this.description.val(), Status: this.status.val(), IsDefective: this.isDefective.prop(":checked") },
                 success: (response, status, jqXhr) => {
                     alert("Guardado");
+                },
+                error: (jqXhr, status, error) => {
+                    alert("Ha ocurrido un error inesperado" + error);
+                }
+            });
+        })
+
+        this.btnDelete.click(e => {
+            $.ajax({
+                type: 'DELETE',
+                url: 'https://localhost:44305/Api/Product/Delete/' + this.codeDel.val(),
+                data: {
+                    Code: this.code.val(), Name: this.description.val(), Status: this.status.val(), IsDefective: this.isDefective.prop(":checked")
+                },
+                success: (response, status, jqXhr) => {
+                    alert("Eliminado");
                 },
                 error: (jqXhr, status, error) => {
                     alert("Ha ocurrido un error inesperado" + error);
