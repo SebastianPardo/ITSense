@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Label("Codigo", new { @class = "control-label" })
+            @Html.Editor("Code", new { htmlAttributes = new { @class = "form-control", type = "number" } })
+        </div>
+        <div class="col-md-3">
+            @Html.Label("Descripcion", new { @class = "control-label" })
+            @Html.Editor("Description", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-md-3">
+            @Html.Label("Estado", new { @class = "control-label" })
+            @Html.Editor("Status", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-md-3">
+            <input type="checkbox" class="form-check-input" id="IsDefective">
+            <label class="form-check-label" for="IsDefective">Defectuoso</label>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:20px">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary" id="btnAdd">Primary</button>
+        </div>
+    </div>
+</div>
